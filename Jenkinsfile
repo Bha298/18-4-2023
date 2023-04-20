@@ -26,7 +26,7 @@ pipeline{
          stage('docker tag'){
             steps{
                 script{
-                 bat "docker tag 0.0.1  bharadwaz1/java:demo321"   
+                 bat "docker tag a7aa541db6fe  bharadwaz1/java:demo321"   
                 }
             }
             
