@@ -22,14 +22,7 @@ pipeline{
                 }
             }
         }
-        
-        stage('docker build'){
-              steps{
-                  script{
-                    bat 'mvn clean package dockerfile:build'
-                  }
-              }
-              }
+      
         
         
         
