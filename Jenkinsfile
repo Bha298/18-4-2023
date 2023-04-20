@@ -14,6 +14,22 @@ pipeline{
                 }
             }
         }
+          stage('mvn install'){
+            steps{
+                script{
+                        bat 'mvn clean install'   
+                }
+            }
+        }
+        
+        
+        stage('docker build'){
+              steps{
+                  script{
+                    bat 'mvn clean package dockerfile:build'
+                  }
+              }
+              }
           
     }
 }
