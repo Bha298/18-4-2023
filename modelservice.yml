@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: model-app
+  labels:
+    app: model-app
+spec:
+  selector:
+    matchLabels:
+      app: model-app
+  replicas: 2 
+  template:
+    metadata:
+      labels:
+        app: model-app
+    spec:
+      containers:
+        - name: model-app
+          image: demo321
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 2001 
+
+
+---
+
+apiVersion: v1 
+kind: Service 
+metadata: 
+  name: model-app
+spec:
+  selector:
+    app: model-app
+  ports:
+    - protocol: "TCP"
+      port: 2001 
+      targetPort: 2001 
+  type: NodePort 
